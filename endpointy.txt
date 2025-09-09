@@ -1,0 +1,60 @@
+java
+// AuthController
+POST    /api/auth/register          // Rejestracja nowego użytkownika
+POST    /api/auth/login             // Logowanie
+POST    /api/auth/logout            // Wylogowanie
+GET     /api/auth/me                // Pobieranie danych zalogowanego usera
+
+// UserController  
+GET     /api/users/{id}             // Pobieranie usera po ID
+PUT     /api/users/{id}             // Edycja profilu usera
+GET     /api/users/{id}/stats       // Statystyki usera
+
+// GameController
+GET     /api/games                  // Lista wszystkich meczów
+GET     /api/games/{id}             // Pobieranie meczu po ID
+GET     /api/games/upcoming         // Nadchodzące mecze
+GET     /api/games/finished         // Zakończone mecze
+GET     /api/games/live             // Mecze w trakcie
+POST    /api/games                  // Tworzenie meczu (ADMIN)
+PUT     /api/games/{id}             // Edycja meczu (ADMIN)
+DELETE  /api/games/{id}             // Usuwanie meczu (ADMIN)
+POST    /api/games/{id}/score       // Ustawianie wyniku (ADMIN)
+
+// PredictionController
+POST    /api/predictions            // Dodawanie typowania
+GET     /api/predictions/my         // Moje typowania
+GET     /api/predictions/user/{userId} // Typowania konkretnego usera
+GET     /api/predictions/game/{gameId} // Typowania dla konkretnego meczu
+PUT     /api/predictions/{id}       // Edycja typowania (jeśli jeszcze nie rozpoczęty mecz)
+DELETE  /api/predictions/{id}       // Usuwanie typowania
+GET     /api/predictions/stats      // Statystyki typowań
+
+// RankingController
+GET     /api/ranking                // Aktualny ranking
+GET     /api/ranking/history        // Historia rankingów
+GET     /api/ranking/user/{userId}  // Historia rankingu konkretnego usera
+GET     /api/ranking/global-stats   // Globalne statystyki
+
+// ResultController
+GET     /api/results                // Wyniki meczów z typowaniami
+GET     /api/results/game/{gameId}  // Wyniki dla konkretnego meczu
+GET     /api/results/user/{userId}  // Wyniki konkretnego usera
+
+// StatsController
+GET     /api/stats/overview         // Przegląd statystyk
+GET     /api/stats/accuracy         // Dokładność typowań
+GET     /api/stats/trends           // Trendy typowań
+GET     /api/stats/comparison       // Porównanie userów
+
+// AdminController
+GET     /api/admin/users            // Lista wszystkich userów
+PUT     /api/admin/users/{id}/role  // Zmiana roli usera
+DELETE  /api/admin/users/{id}       // Usuwanie usera
+GET     /api/admin/system-status    // Status systemu
+POST    /api/admin/recalculate      // Przeliczanie wyników
+
+// PublicController
+GET     /api/public/rules           // Zasady gry
+GET     /api/public/leaderboard     // Publiczny ranking
+GET     /api/public/upcoming-games  // Nadchodzące mecze (publiczne)
